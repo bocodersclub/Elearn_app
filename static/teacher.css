@@ -1,0 +1,21 @@
+.b1
+{
+    background-color: blue;
+    width: 100%;
+    height: 450px;
+}
+.txt
+{
+    width: 500px;
+    height: 100px;
+    visibility: hidden;
+}
+.upbt
+{
+    visibility: hidden;
+}
+.tit
+{
+    color: white;
+    font-size: 20px;
+}

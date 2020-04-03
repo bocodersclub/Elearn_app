@@ -1,0 +1,33 @@
+.b1
+{
+    
+    background-color: blueviolet;
+    height: 450px;
+    color: white;
+    font-size: 30px;
+    margin-top: 20%;
+    
+}
+.passwd
+{
+          font-size:10px;
+}
+.ba
+{
+    background-color: blueviolet;
+}
+.sub
+{
+    color: white;
+    font-size: 20px;
+}
+.pass
+{
+    visibility: hidden;
+}
+.passwd
+{
+    width: 200px;
+    height: 30px;
+    font-size: 20px;
+}

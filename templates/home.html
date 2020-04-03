@@ -1,0 +1,139 @@
+﻿
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Bootstrap css-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!--Bootstrap js-->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <link rel='stylesheet' href="{% static 'home.css'  %}"/>
+    <title>E-learn</title>
+    <link rel = "icon" href =  "https://getbootstrap.com/docs/4.0/components/card/" type = "image/x-icon">
+    <style>
+      body
+      {
+          background-color: blueviolet;
+      }
+      .b1
+      {
+          margin-top: 100px;
+          color:white;
+          font-size:30px;
+          font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      }
+      .sbtn
+      {
+          visibility: hidden;
+      }
+      .card,.card-body,.card-footer
+      {
+          background-color: transparent;
+          border: 2px transparent slategrey;
+          z-index: 2;
+
+      }
+      input
+      {
+
+          outline: 0;
+          border-width: 0 0 2px;
+          border-color:lightgreen;
+          color:white;
+          background-color: transparent;
+          
+      }
+      ::placeholder
+      {
+          color:white;
+      }
+      .name
+      {
+          font-size: 20px;
+          color:black;
+      }
+      .name-min
+      {
+          font-size: 15px;
+      }
+      .im 
+      {
+         width:100px;
+         height:100px;
+       }
+        .b1
+        {
+            background-image: url('{% static "images/backg.jpeg" %}');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+        }
+        .b2
+        {
+            margin-top: -300px;
+        }
+        .sub
+        {
+            font-size: 15px;
+            font-style: 20px;
+        }
+    </style>
+</head>
+
+<body class="b1">
+    <div class='container'>
+        <div class="row">
+            <div class="col-md-8"></div>
+            <div class="col-md-4 b1">Book's Point<sub class="sub"> Xperience vintage</sub><br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;<button class='btn-sm btn-primary login'>Login</button><br />
+                <button class='btn btn-md btn-outline-warning sbtn'><a href='./student'>Student</a></button>
+                <button class='btn btn-md btn-outline-success sbtn'><a class='teacher'>Teacher</a></button><br /><br />
+            </div>
+        </div>
+        <div class="row b2">
+            <div class="col-md-7"></div>
+            <div class="col-md-5">
+                <div class="res name">{{pass}}</div>
+                <div class='pass card'>
+                    <div class="card-body">
+                        <form method='GET' action='teacher' autocomplete="off">
+                            {% csrf_token %}
+                            <div class="text-center name"><u>Credentials</u></div><br />
+                            <div class="text-center">
+                            <input type='password' placeholder="password" name='passwd' class='passwd text-center'>
+                            <button class='btn btn-sm btn-outline-primary' type='submit'>Login</button><br /><br />
+                            </div>
+                            <div class="card-footer name-min text-center">Powered By: E-Learn</div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<script>
+   $(".teacher").on("click",function(){
+       $(".pass").css({"visibility":"visible"});
+   });
+   $(".login").on("click",function(){
+       $(".login").css({"visibility":"hidden"});
+       $(".sbtn").css({"visibility":"visible"});
+       $(".res").css({"visibility":"hidden"});
+   })
+</script>
+</body>
+
+</html>

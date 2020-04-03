@@ -1,0 +1,123 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher</title>
+    <!--Bootstrap css-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!--Bootstrap js-->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <link rel='stylesheet' href="{% static 'teacher.css' %}">
+    <style>
+     .title
+     {
+         visibility:hidden;
+         width: 250px;
+         height: 25px;
+     }
+     .subjectfile
+     {
+         visibility: hidden;
+     }
+     .b1
+     {
+         background-color: #333;
+         
+     }
+     .name
+     {
+         font-size: 20px;
+         color:white;
+     }
+     input
+     {
+        outline: 0;
+        border-width: 0 0 2px;
+        border-color:lightgreen;
+        background: transparent;
+        color: white;
+     }
+     .card,.card-body,.card-footer
+     {
+         background-color: transparent;
+         border: 2px transparent slategrey;
+         z-index: 2;
+
+     }
+     .block
+     {
+         width: 100px;
+         display: inline-block;
+         border: 2px solid white;
+         height: 50px;
+     }
+    </style>
+</head>
+
+<body class='b1'>
+    <div class='container'><br />
+        <div class="row">
+            <div class="col-md-12 tit text-center"><b>Teacher's Portal</b></div><br /><br />
+            <div class="col-md-12">&nbsp;&nbsp;<button class='btn btn-md btn-outline-primary add'>Add</button><br/></div>
+            <div class="col-md-12 cardback text-center">
+                <div class="card">
+                    <div class="card-body">
+                        <form method='POST' action='upload'>
+                            {% csrf_token %}
+                            <span class="subjectfile name">Title: </span><input type="text" maxlength="15"
+                                placeholder="title max: 15 letters" class="title" name='less'><br /><br />
+                            <span class="subjectfile name">Upload: </span> <input type="file" name="subjectfile"
+                                class="subjectfile"><br /><br />
+                            <button class='btn btn-md btn-outline-warning upbt'>Upload</button>
+                            <div class="text-center alert">{{alert}}</div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 text-center">
+                <div class="name">Contents</div>
+                {% for x in downloadc %}
+                <div class="block">
+                    <div>
+                        <span class="subtit">{{x.subjectname}}</span>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <script>
+        $(".add").on("click",function(){
+            $(".cardback").css({"visibility":"visible"});
+            $(".title").css({"visibility":"visible"});
+            $(".subjectfile").css({"visibility":"visible"});
+            $(".upbt").css({"visibility":"visible"});
+        })
+    </script>
+</body>
+
+</html>
+
+<!--
+    <div><br/>
+            
+            <div class='text-center'>
+            
+            
+            
+            </div>
+            
+        </div>
+-->
